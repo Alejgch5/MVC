@@ -1,0 +1,121 @@
+:root {
+    --color-dark: #15181f;
+    --color-dark-x: #2d343f;
+    --color-dark-xx: #1f232b;
+    --color-light: #ffffff;
+    --color-grey: #f5f6f8;
+    --verde: #00BB45;
+    --azul: #004bc7;
+    --blanco: #ffffff;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    /* background-color: var(--color-grey);*/
+    color: var(--color-dark);
+    letter-spacing: .05rem;
+    /* scroll-behavior: smooth; */
+    background: linear-gradient(var(--verde), var(--azul));
+    background: -webkit-linear-gradient(var(--verde), var(--azul));
+    background: -moz-linear-gradient(var(--verde), var(--azul));
+    background: -o-linear-gradient(var(--verde), var(--azul));
+    background: linear-gradient(var(--verde), var(--azul));
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+/*modifica el contenedor del formulario*/
+.bg-light {
+    background-color: #e8e8e8 !important;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.bg-dark {
+    background-color: var(--color-dark) !important;
+}
+
+.p-6 {
+    padding: 4rem 7rem;
+}
+
+.contact-box {
+    padding: 1.5rem;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+.btn {
+    font-weight: 400;
+    padding: 1rem 2rem;
+    border-radius: 5rem;
+    min-width: 10rem;
+}
+
+.btn-outline-dark {
+    border: 2px solid var(--color-dark-xx);
+}
+
+
+.form-control {
+    background-color: var(--color-light);
+    border: 2px solid var(--color-dark-xx);
+    border-radius: .2rem;
+    padding: 6px;
+}
+
+.register-bg {
+    display: flex;
+    background-size: auto;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    /*mirar el responsive con la imagen desde la url en css*/
+}
+
+.testiomonial {
+    bottom: 10px
+}
+
+@media (max-width: 575.98px) {
+    /*borrar esto para mejor el performance
+    .p-6 {
+        padding: 2rem;
+    }
+
+    .contact-box {
+        padding: 0;
+    }
+
+    .width-100 {
+        width: 100%;
+    }*/
+}
+@media (min-width: 568px) {
+    img.img-fluid{
+        width: 350px;
+        height: 250px;
+        padding: 0px;
+        margin: 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container img.img-fluid {
+        width: 300px;
+        height: 250px;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .container img.img-fluid {
+        min-height: 50vh;
+    }
+}
+
+.btn.btn-success {
+    background-color: #00BB45;
+}

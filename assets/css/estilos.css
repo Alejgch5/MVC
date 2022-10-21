@@ -1,0 +1,456 @@
+:root{
+    --verde:#00BB45;
+    --azul:#004bc7;
+    --blanco:#ffffff;
+    
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    
+    
+}
+.portada{
+    background: linear-gradient(var(--verde), var(--azul));
+    background: -webkit-linear-gradient(var(--verde), var(--azul));
+    background: -moz-linear-gradient(var(--verde),  var(--azul));
+    background: -o-linear-gradient(var(--verde), var(--azul));
+    background: linear-gradient(var(--verde), var(--azul));
+    height: 39.55vw;
+    width: 100% ;
+    background-repeat: no-repeat;
+}
+.portadafondocompleto{
+    background: linear-gradient(var(--verde), var(--azul));
+    background: -webkit-linear-gradient(var(--verde), var(--azul));
+    background: -moz-linear-gradient(var(--verde),  var(--azul));
+    background: -o-linear-gradient(var(--verde), var(--azul));
+    background: linear-gradient(var(--verde), var(--azul));
+    height: 45.6pc;
+    width: 100% ;
+    background-repeat: no-repeat;
+}
+.textportada{
+    position: absolute;
+    left: 2vw;
+    top: 20vw;
+    color: var(--blanco);
+    /* font-weight: 500; */
+
+}
+.imgportada{
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    bottom: 0;
+    mix-blend-mode: multiply;
+}
+.textportada p{
+    position: relative;
+    /* width: 15vw; */
+    left: 2vw;
+}
+.textportada h1{
+    font-weight: 900;
+    position: relative;
+    /* width: 15vw; */
+    left: 2vw;
+    font-size: 50px;
+
+}
+nav{
+    z-index: 1;
+    font-size: 15px;
+    box-shadow: 0px 10px 5px gray;
+    position: sticky;
+    
+}
+.calificacion{
+    position: relative;
+    width: 15vw;
+    left: 80vw;
+    bottom: 5vw;
+    text-align: center;
+    /* top: -5vw; */
+    background-color: var(--blanco);
+    padding: 1%;
+    border-radius: 10px;
+
+    
+}
+.logo{
+    width: 8vw;
+    
+}
+li a{
+    text-decoration: none;
+    color: var(--azul);
+}
+.botones-2 li a {
+    color: var(--blanco);
+}
+/*li a:hover{
+    color: var(--verde);
+    
+}*/
+
+.calificacion a.verranking{
+    text-decoration: none;
+
+}
+
+.verranking{
+    font-weight: 900;
+    color: var(--azul);
+   
+}   
+.btn-1{
+    display: inline-block;
+    border: 2px solid var(--azul);
+    border-radius: 15px;
+ }
+
+.btn-2{
+    background-color: var(--verde);
+    width: 120px;
+    border-radius: 15px;
+    color: var(--blanco);
+    text-align: center;
+}
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    list-style: none;
+    width: 25px;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 20px;
+}
+
+.dropdown-menu a{
+    color: black;
+    list-style: none;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/*ver video de udemy especificidad*/
+
+/* inicio card nuestros servicios  */
+.titulo1{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--azul);
+    margin: 4vw;
+}
+
+.nuestros{
+    width: 100%;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.nuestros .card{
+    width: 330px;
+    height: 440px;
+    border-radius: 8px;
+    border: 3px solid black;
+    box-shadow: 0px 10px 5px gray;
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.nuestros .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0px 10px 5px gray;
+}
+
+.nuestros .card img{
+    width: 330px;
+    height: 220px;
+}
+
+.nuestros .card h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--azul);
+}
+
+.nuestros .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+}
+/* fin de las card nuestros servicios */
+
+/*acerca de nosotros*/
+.textacerca{
+    position: absolute;
+    left: 4vw;
+    top: 5vw;
+    color: var(--blanco);
+    /* font-weight: 500; */
+    
+}
+p.quienes-somos2{
+    color: var(--blanco);
+}
+
+.imglogocercadenosotros {
+    width: 50%;
+    height: 50%;
+    margin: 87px;
+}
+.titulo2{
+    margin-top: 50px;
+}
+
+/* iniciar-sesión-tutor*/
+.user-img{
+    margin: 10px 0px;
+}
+
+.modal-content{
+    padding: 0px 80px;
+    border-radius: 30px;
+}
+
+.tutor-sesión{
+    margin:0 auto;
+    margin-top:10vw;
+    padding: 0;
+    width: 40%;
+    
+}
+
+.btninisiarsesión{
+    margin: 10px 0px;
+}
+.inputlogin{
+    margin: 20px 0px;
+}
+
+.contenedor-login{
+    display: flex;
+    align-items: center;
+}
+
+.bnt-atras{
+    color: var(--blanco);
+    margin-left: 80px;
+    margin-top: 15px;
+}
+/*fin-de-iniciar-sesión-tutor*/
+
+/*mis-cursos*/
+.aprender{
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid var(--azul);
+    font-size: 13px;
+}
+/*iconos*/
+.campana{
+    font-size: 20px;
+}
+
+.usuario{
+    font-size: 30px;
+}
+
+.angulo{
+    font-size: 25px;
+}
+
+.confi{
+    font-size: 23px;
+}
+
+.arr{
+    font-size: 23px;
+}
+.salir a{
+    color: black;
+}
+
+/*fin-de-iconos*/
+
+.miscursos{
+    display: inline-block;
+    margin: 16px;
+    padding: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.miscursos::after,.miscursos::before{
+    content: '';
+    position: absolute;
+    width: 78%;
+    height: 2px;
+    background-color: black;
+    margin-top: 50px;
+}
+
+.Alfabetico{
+    border-radius: 10px;
+    width: auto;
+    /* padding: 5px 25px; */
+    /* margin-left: 774px; */
+    border: var(--blanco);
+    /* float: right; */
+}
+
+.Categorías-btn{
+    border-radius: 10px;
+    width: auto;
+    /* padding: 5px 25px; */
+    border: var(--blanco);
+}
+.card{
+    /* width: 330px;
+    height: 440px; */
+    border-radius: 8px;
+    border: 3px solid black;
+    box-shadow: 0px 10px 5px gray;
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0px 10px 5px gray;
+}
+
+.card img{
+    width: 330px;
+    height: 220px;
+}
+
+.card h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+}
+
+.card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: left;
+}
+
+.calificar-btn{
+    border-radius: 15px;
+    padding: 2px;
+    background-color: var(--verde);
+    color: var(--blanco);
+    width: 145px;
+    margin-left: 60px;
+    border: var(--blanco);
+}
+
+.curso-btn{
+    border-radius: 15px;
+    padding: 10px;
+    background-color: var(--azul);
+    color: var(--blanco);
+    margin-top: 25px;
+    border: var(--blanco);
+}
+.centradoIconos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+/*fin-mis-cursos*/
+
+/*inicio-cursos*/
+.cursos{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 16px;
+}
+
+.cursos::after,.cursos::before{
+    content: '';
+    position: absolute;
+    width: 78%;
+    height: 2px;
+    background-color: black;
+    margin-top: 50px;
+}
+.precio{
+    margin-left: 130px;
+}
+/*Inicio-descripcion-curso*/
+main h1.tiuloCurso{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--azul)!important;
+    margin: 4vw; 
+}
+/*inicio de footer*/
+.cuadro-footer{
+    width: 100%;
+    background-color: #0a141d;
+}
+.cuadro-footer .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+}
+.cuadro-footer .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cuadro-footer .grupo-1 .box figure img{
+    width: 200px;
+}
+.cuadro-footer .grupo-1 .box h2{
+    color: var(--azul);
+    margin-bottom: 23px;
+    font-size: 20px;
+}
+.cuadro-footer .grupo-1 .box p{
+    color: var(--blanco);
+    margin-bottom: 10px;
+}
+.cuadro-footer .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: var(--blanco);
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.cuadro-footer .grupo-1 .red-social a:hover{
+    color: aqua;
+}
+.cuadro-footer .grupo-2{
+    background-color: #0a1a2a;
+    padding: 7px 7px;
+    text-align: center;
+    color: var(--blanco);
+}
