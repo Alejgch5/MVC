@@ -9,6 +9,9 @@ class Tutor extends Controller
     }
     public function index()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
 
         $data['title'] = 'Crea un curso';
         $this->views->getView('tutor/views', "index", $data);
@@ -17,6 +20,9 @@ class Tutor extends Controller
 
     public function home()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         $data['title'] = 'Crea un curso';
         $this->views->getView('tutor/views', "index", $data);
     }

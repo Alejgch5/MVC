@@ -9,6 +9,9 @@ class Cursos extends Controller
     }
     public function index()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
 
         $data['title'] = 'Crea tu curso';
         $data['tematicas'] = $this->model->getTematicas();
@@ -17,6 +20,9 @@ class Cursos extends Controller
 
     public function listar()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         $data = $this->model->getProductos(1);
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['imagen'] = ' <img class="img-thumbnail" src="' . $data[$i]['imagen'] . '" alt="' . $data[$i]['nombre'] . '" width="50">';
@@ -31,6 +37,9 @@ class Cursos extends Controller
 
     public function registrar()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         if (isset($_POST['nombre']) && isset($_POST['precio'])) {
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descripcion'];
@@ -85,6 +94,9 @@ class Cursos extends Controller
 
     public function delete($idCur)
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         if (is_numeric($idCur)) {
             $data = $this->model->eliminar($idCur);
             if ($data == 1) {
@@ -101,6 +113,9 @@ class Cursos extends Controller
 
     public function edit($idCur)
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         if (is_numeric($idCur)) {
             $data = $this->model->getCurso($idCur);
             echo json_encode($data, JSON_UNESCAPED_UNICODE);

@@ -9,13 +9,18 @@ class Alumnos extends Controller
     }
     public function index()
     {
-
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         $data['title'] = 'Mira tus estudiantes';
         $this->views->getView('tutor/alumnos', "index", $data);
     }
 
     public function listar()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         $data = $this->model->getAlumnos(1);
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['accion'] = '<div class="d-flex">
@@ -29,6 +34,9 @@ class Alumnos extends Controller
 
     public function registrar()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         if (isset($_POST['nombre'])) {
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
@@ -73,6 +81,9 @@ class Alumnos extends Controller
 
     public function delete($idUser)
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         if (is_numeric($idUser)) {
             $data = $this->model->eliminar($idUser);
             if ($data == 1) {
@@ -89,6 +100,9 @@ class Alumnos extends Controller
 
     public function edit($idUser)
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         if (is_numeric($idUser)) {
             $data = $this->model->getAlumno($idUser);
             echo json_encode($data, JSON_UNESCAPED_UNICODE);
