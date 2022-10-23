@@ -102,6 +102,12 @@ class UsuariosModel extends Query{
         return $this-> selectAll($sql);
     }
 
+    public function getRecuperar($correo, $clave)
+    {
+        $sql = "UPDATE tblusuarios SET clave='$clave' Where correo='$correo'";
+        return $this-> select($sql);
+    }
+
     
 }
  
