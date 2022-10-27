@@ -72,7 +72,8 @@
                                 <label for="claveLogin"><i class="fas fa-key"></i>Contraseña</label>
                                 <input type="password" name="claveLogin" id="claveLogin" class="form-control" placeholder="Contraseña" aria-describedby="helpId">
                             </div>
-                            <a href="#" id="btnRegister">Aun no tienes una cuenta?</a>
+                            <a href="#" id="btnRegister">Aun no tienes una cuenta?</a><br>
+                            <a href="#" id="btnRecuperar">No recuerdas tu contraseña?</a>
                             <div class="float-end">
                                 <button input name="" id="login" class="btn btn-primary btn-lg" type="button" value="">Iniciar Sesion</button>
                             </div>
@@ -114,6 +115,16 @@
                             <a href="#" id="btnLogin">Ya tienes una cuenta?</a>
                             <div class="float-end">
                                 <button input name="" id="registrarse" class="btn btn-primary btn-lg" type="button" value="">Registrarse</button>
+                            </div>
+                        </div>
+                        <!-- formulario de rehistro -->
+                        <div class="col-md-12 d-none" id="frmRecuperar">
+                            <div class="form-group mb-3">
+                                <label for="correoRecuperar"><i class="fas fa-envelope"></i>Correo</label>
+                                <input type="text" name="correoRecuperar" id="correoRecuperar" class="form-control" placeholder="Correo Electronico" aria-describedby="helpId">
+                            </div>
+                            <div class="float-end">
+                                <button input name="" id="recuperar" class="btn btn-primary btn-lg" type="button" value="">Recuperar</button>
                             </div>
                         </div>
                     </div>

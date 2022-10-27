@@ -17,6 +17,9 @@ class Tematicas extends Controller
     }
     public function index()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
 
         $data['title'] = 'Crea tu tematica';
         $this->views->getView('tutor/tematicas', "index", $data);
@@ -24,6 +27,9 @@ class Tematicas extends Controller
 
     public function listar()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         $data = $this->model->getTematicas(1);
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['imagen'] = ' <img class="img-thumbnail" src="'.$data[$i]['imagen'].'" alt="'.$data[$i]['tematica'].'" width="50">';
@@ -38,6 +44,9 @@ class Tematicas extends Controller
 
     public function registrar()
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         if (isset($_POST['tematica'])) {
             $tematica = $_POST['tematica'];
             $imagen = $_FILES['imagen'];
@@ -92,6 +101,9 @@ class Tematicas extends Controller
 
     public function delete($idTe)
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         if (is_numeric($idTe)) {
             $data = $this->model->eliminar($idTe);
             if ($data == 1) {
@@ -108,6 +120,9 @@ class Tematicas extends Controller
 
     public function edit($idTe)
     {
+        if (empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+        }
         if (is_numeric($idTe)) {
             $data = $this->model->getTematica($idTe);
             echo json_encode($data, JSON_UNESCAPED_UNICODE);
