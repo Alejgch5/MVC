@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
   })
   //registro
   registrarse.addEventListener('click',function () {
-    if (nombreRegistro.value == '' || apellidoRegistro.value == '' || correoRegistro.value == '' || claveRegistro.value == '' || docRegistro.value == ''){
+    if (nombreRegistro.value == '' || apellidoRegistro.value == '' || correoRegistro.value == '' || claveRegistro.value == '' || docRegistro.value == '' || generoRegistro.value == ''){
       Swal.fire(
         'Aviso?',
         'TODOS LOS CAMPOS SON REQUERIDOS',
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
       formData.append('correo', correoRegistro.value);
       formData.append('clave', claveRegistro.value);
       formData.append('doc', docRegistro.value);
+      formData.append('genero', generoRegistro.value);
 
       const url = base_url + 'usuarios/registroDirecto';
       const http = new XMLHttpRequest();
@@ -99,11 +100,16 @@ document.addEventListener('DOMContentLoaded', function () {
           if (this.readyState == 4 && this.status == 200 ){
               const res = JSON.parse(this.responseText);
               Swal.fire("Aviso?", res.msg, res.icono);
-              if (res.icono == "success"){
+              if (res.icono == "success" && res.rol == 2){
                  setTimeout(() => {
                     window.location.reload();
                  }, 2000);
               }
+              else if (res.icono == "success" && res.rol == 1){
+                setTimeout(() => {
+                   window.location.href= base_url + "dashboards";
+              }, 2000);
+             }
           }
           
       }

@@ -6,6 +6,14 @@ class Tematicas extends Controller
         parent::__construct();
         session_start();
         //session_destroy();
+
+         //valida el inicio de sesion y limita el acceso al administrador
+         if(empty($_SESSION['correoUser'])) {
+            header('location: ' . BASE_URL);
+          }
+          else if($_SESSION['rol'] == 1) {
+            header('location: ' . BASE_URL . "dashboards");
+          }
     }
     public function index()
     {

@@ -6,12 +6,16 @@ class Tutor extends Controller
         parent::__construct();
         session_start();
         //session_destroy();
+
+         //valida el inicio de sesion y limita el acceso al administrador
+         if(empty($_SESSION['correoUser']) || !empty($_SESSION['rol']) && $_SESSION['rol'] == 1){
+            header('location: ' . BASE_URL);
+          }
     }
     public function index()
     {
-
         $data['title'] = 'Crea un curso';
-        $this->views->getView('tutor', "login", $data);
+        $this->views->getView('tutor/views', "index", $data);
     }
 
     public function validar()

@@ -6,10 +6,16 @@ class UsuariosModel extends Query{
         parent::__construct();
     }
 
-    public function registroDirecto($nombre,$apellido,$correo,$clave,$doc,$token)
+    public function registroDirecto($nombre,$apellido,$correo,$clave,$doc,$token,$genero,$rol=2) //el rol por defecto es 2 (usuario). a menos que se haga un registro tutor, en lo cual se recibe una variable con el dato del rol 1 (admin).
     {
-        $sql = "INSERT INTO tblusuarios (nombre, apellido, correo, clave, doc, token) VALUES (?,?,?,?,?,?)";
-        $datos = array($nombre, $apellido, $correo, $clave, $doc, $token);
+        $sql = "INSERT INTO tblusuarios (nombre, apellido, correo, clave, doc, token, idgenero, idrol) VALUES (?,?,?,?,?,?,?,?)";
+        $datos = array($nombre, $apellido, $correo, $clave, $doc, $token, $genero, $rol);
+
+        //inserción con el tipo de genero
+        // $genero = 1;
+        // $sql = "INSERT INTO tblusuarios (nombre, apellido, correo, clave, doc, token, idrol, idgenero) VALUES (?,?,?,?,?,?,?,?)";
+        // $datos = array($nombre, $apellido, $correo, $clave, $doc, $token, $rol, $genero);
+
         $data = $this->insertar($sql, $datos);
         if ($data > 0){
             $res = $data;
@@ -101,6 +107,11 @@ class UsuariosModel extends Query{
         $sql = "SELECT d.* FROM pedidos p INNER JOIN detalle_pedidos d ON p.id = d.id_pedido WHERE p.id = $idpedido";
         return $this-> selectAll($sql);
     }
+    // public function getGenero() // trae los nombres de los generos
+    // {
+    //     $sql = "SELECT nombre FROM tblgenero;";
+    //     return $this-> selectAll($sql);
+    // }
 
     
 }

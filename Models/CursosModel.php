@@ -6,9 +6,16 @@ class CursosModel extends Query{
         parent::__construct();
     }
 
-    public function getProductos($estado)
+    public function getProductos($estado)//trae los cursos que ha creado el usuario
     {
-        $sql = "SELECT * FROM tblcurso WHERE estado = $estado";
+        $tutor = $_SESSION['idUser'];
+
+       // $sql = "SELECT * FROM tblcurso WHERE estado = $estado";
+
+       //trae todos los datos de la tabla curso y también de la tabla usuarios
+        // $sql = "SELECT * FROM tblcurso INNER JOIN tblusuarios ON tblcurso.idtutor = tblusuarios.id WHERE tblusuarios.id = $tutor AND tblcurso.estado = $estado;";
+
+        $sql = "SELECT tblcurso.idcurso, tblcurso.nombre, tblcurso.duracion, tblcurso.video, tblcurso.precio, tblcurso.descripcioncorta, tblcurso.descripcion, tblcurso.idtematica, tblcurso.imagen, tblcurso.estado, tblcurso.idtutor FROM tblcurso INNER JOIN tblusuarios ON tblcurso.idtutor = tblusuarios.id WHERE tblusuarios.id = $tutor AND tblcurso.estado = $estado;";
         return $this->selectAll($sql);
     }
     
@@ -20,8 +27,10 @@ class CursosModel extends Query{
 
     public function registrar($nombre, $descripcion, $precio, $video, $imagen, $tematica) 
     {
-        $sql = "INSERT INTO  tblcurso (nombre, descripcion, precio, video, imagen, idtematica) VALUES (?,?,?,?,?,?)";
-        $array = array($nombre, $descripcion, $precio, $video, $imagen, $tematica);
+        $tutor = $_SESSION['idUser'];
+
+        $sql = "INSERT INTO  tblcurso (nombre, descripcion, precio, video, imagen, idtematica, idtutor) VALUES (?,?,?,?,?,?,?)";
+        $array = array($nombre, $descripcion, $precio, $video, $imagen, $tematica, $tutor);
         return $this->insertar($sql, $array);
         
     }

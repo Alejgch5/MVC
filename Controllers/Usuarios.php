@@ -20,6 +20,7 @@ class Usuarios extends Controller
         $data['perfil'] = 'si';
         $data['title'] = 'Tu perfil';
         $data['verificar'] = $this->model->getVerificar($_SESSION['correoUser']);
+        // $data['nombreGenero'] = $this->model->getGenero(); // trae los nombres de los generos
         $this->views->getView('principal', "perfil", $data);
     }
 
@@ -27,7 +28,7 @@ class Usuarios extends Controller
     {
         
         if (isset($_POST['nombre']) &&  isset($_POST['clave'])){
-            if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['correo']) || empty($_POST['clave']) || empty($_POST['correo']) || empty($_POST['doc'])  ){
+            if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['correo']) || empty($_POST['clave']) || empty($_POST['correo']) || empty($_POST['doc']) ){
                 $mensaje = array('msg' => 'TODOS LOS CAMPOS SON REQUERIDOS', 'icono' => 'error' );
             }else {
                 $nombre = $_POST['nombre'];
@@ -35,11 +36,12 @@ class Usuarios extends Controller
                 $correo = $_POST['correo'];
                 $clave = $_POST['clave'];
                 $doc = $_POST['doc'];
+                $genero = $_POST['genero'];
                 $verificar = $this->model->getVerificar($correo);
                 if(empty($verificar)){
                     $token = md5($correo);
                     $hash = password_hash($clave, PASSWORD_DEFAULT);
-                    $data = $this->model->registroDirecto($nombre,$apellido,$correo,$hash,$doc,$token);
+                    $data = $this->model->registroDirecto($nombre,$apellido,$correo,$hash,$doc,$token,$genero);
                     //$this->enviarCorreo($correo, $token);
                     //exit;
                     if ($data > 0){
@@ -139,17 +141,26 @@ class Usuarios extends Controller
                     if (password_verify($clave, $verificar['clave'])){
                         $_SESSION['correoUser'] = $verificar['correo'];
                         $_SESSION['nombreUser'] = $verificar['nombre'];
+                        $_SESSION['apellidoUser'] = $verificar['apellido'];
+                        $_SESSION['idUser'] = $verificar['id'];
+                        $_SESSION['rol'] = $verificar['idrol'];
 
-                        $mensaje = array('msg' => 'OK', 'icono' => 'success');
+                        $mensaje = array('msg' => 'OK', 'icono' => 'success', 'rol' => 2);
+
+                        if ($verificar['idrol']==1){
+                            $mensaje = array('msg' => 'OK', 'icono' => 'success', 'rol' => 1);
+                        }
                     }else{
                         $mensaje = array('msg' => 'CONTRASEÑA INCORRECTA', 'icono' => 'error' );
                     }
                 }else {
                     $mensaje = array('msg' => 'EL CORREO NO EXISTE', 'icono' => 'error' );
                 }
+                
             }
             
             
+           
             echo json_encode($mensaje, JSON_UNESCAPED_UNICODE);
             die();
 
@@ -182,6 +193,7 @@ class Usuarios extends Controller
                     $temp = $this->model->getDetalle($curso['idcurso']);
                     $this->model->registrarDetalle($temp['nombre'], $temp['precio'], $data);
                 }
+                echo "entré";
                 $mensaje = array('msg' => 'OK, CURSO REGISTRADO', 'icono' => 'success');
             } else {
                 $mensaje = array('msg' => 'ERROR AL REGISTRAR EL PEDIDO', 'icono' => 'error');

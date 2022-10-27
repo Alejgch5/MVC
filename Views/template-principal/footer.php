@@ -99,6 +99,18 @@
                                 <label for="docRegistro"><i class="fas fa-key"></i>N.Documento</label>
                                 <input type="text" name="docRegistro" id="docRegistro" class="form-control" placeholder="Documento" aria-describedby="helpId">
                             </div>
+                            <div class="form-group mb-3">
+                                <label for="generoRegistro"><i class="fa-solid fa-venus-mars"></i>genero</label>
+                                <select id="generoRegistro" class="form-control" name="generoRegistro">
+                                    <option value="">Seleccionar</option>
+                                    <?php /*foreach ($data['nombreGenero'] as $generos) { ?>
+                                    <option value="<?php echo $generos['nombre']; ?>"><?php echo $generos['nombre']; ?></option>
+                                    <?php }*/ ?>
+                                    <option value="1">Femenino</option>
+                                    <option value="2">Masculino</option>
+                                    <option value="3">Otros</option>
+                                </select>
+                            </div>
                             <a href="#" id="btnLogin">Ya tienes una cuenta?</a>
                             <div class="float-end">
                                 <button input name="" id="registrarse" class="btn btn-primary btn-lg" type="button" value="">Registrarse</button>

@@ -29,7 +29,21 @@ if (file_exists($dirControllers)) {
     } else {
         header('Location: '.BASE_URL.'errors');
     }
-} else {
-    header('Location: ' . BASE_URL . 'errors');
+}
+else // Para que pueda reconocer el archivo thematics.php
+{
+    $dirAdminControllers = "Controllers/Admin/" . $controller . ".php";
+    if (file_exists($dirAdminControllers)) {
+        require_once $dirAdminControllers;
+        $controller = new $controller();
+        if (method_exists($controller, $metodo)) {
+            $controller->$metodo($parametro);
+        } else {
+            header('Location: '.BASE_URL.'errors');
+        }
+    }
+    else {
+        header('Location: ' . BASE_URL . 'errors');
+    }
 }
 ?>

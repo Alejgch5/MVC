@@ -4,6 +4,11 @@ class Principal extends Controller
     public function __construct() {
         parent::__construct();
         session_start();
+        
+        //valida el inicio de sesion y limita el acceso al administrador
+        if(!empty($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+            header('location: ' . BASE_URL . "dashboards");
+          }
     }
 
     //vista servicios
