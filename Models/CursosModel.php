@@ -19,13 +19,13 @@ class CursosModel extends Query{
         return $this->selectAll($sql);
     }
     
-    public function getTematicas()
+    public function getTematicas() // Trae las temáticas que son visibles (con estado 1)
     {
         $sql = "SELECT * FROM tbltematica WHERE estado = 1";
         return $this->selectAll($sql);
     }
 
-    public function registrar($nombre, $descripcion, $precio, $video, $imagen, $tematica) 
+    public function registrar($nombre, $descripcion, $precio, $video, $imagen, $tematica) // Registra un curso nuevo
     {
         $tutor = $_SESSION['idUser'];
 
@@ -35,20 +35,20 @@ class CursosModel extends Query{
         
     }
 
-    public function eliminar($idCur)
+    public function eliminar($idCur) // Elimina un curso
     {
         $sql = "UPDATE tblcurso SET estado = ? WHERE idcurso = ? ";
         $array = array(0, $idCur);
         return $this->save($sql, $array);
     }
 
-    public function getCurso($idCur)
+    public function getCurso($idCur) // Trae el curso que se quiere editar.
     {
         $sql = "SELECT * FROM tblcurso WHERE idcurso = $idCur";
         return $this->select($sql);
     }
 
-    public function modificar($nombre, $descripcion, $precio, $video, $destino, $tematica, $idcurso) 
+    public function modificar($nombre, $descripcion, $precio, $video, $destino, $tematica, $idcurso) // Actualiza un curso 
     {
         $sql = "UPDATE tblcurso SET nombre=?, descripcion=?, precio=?, video=?, imagen=?, idtematica=? WHERE idcurso = ? ";
         $array = array($nombre, $descripcion, $precio, $video, $destino, $tematica, $idcurso);

@@ -197,7 +197,7 @@ class Usuarios extends Controller
         die();
     }
 
-    //listar pednientes
+    //listar pendientes
 
     public function listarPendientes()
     {

@@ -1,4 +1,5 @@
 <?php
+// Constantes globales
 const BASE_URL = "http://localhost/MVC/";
 const HOST = "localhost";
 const USER = "root";

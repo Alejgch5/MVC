@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   registrarse.addEventListener('click',function () {
     if (nombreRegistro.value == '' || apellidoRegistro.value == '' || correoRegistro.value == '' || claveRegistro.value == '' || docRegistro.value == '' || generoRegistro.value == ''){
       Swal.fire(
-        'Aviso?',
+        '',
         'TODOS LOS CAMPOS SON REQUERIDOS',
         'warning'
     );
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
       http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           const res = JSON.parse(this.responseText);
-          Swal.fire("Aviso?", res.msg, res.icono);
+          Swal.fire("", res.msg, res.icono);
           if (res.icono == "success") {
             setTimeout(() => {
               enviarCorreo(correoRegistro.value, res.token);
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //LOGIN
   login.addEventListener("click", function () {
     if (correoLogin.value == "" || claveLogin.value == "") {
-      Swal.fire("Aviso?", "TODOS LOS CAMPOS SON REQUERIDOS", "warning");
+      Swal.fire("", "TODOS LOS CAMPOS SON REQUERIDOS", "warning");
     } else {
       let formData = new FormData();
       formData.append("correoLogin", correoLogin.value);
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
       http.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200 ){
               const res = JSON.parse(this.responseText);
-              Swal.fire("Aviso?", res.msg, res.icono);
+              Swal.fire("", res.msg, res.icono);
               if (res.icono == "success" && res.rol == 2){
                  setTimeout(() => {
                     window.location.reload();
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //LOGIN
   Recuperar.addEventListener("click", function () {
     if (correoRecuperar.value == "") {
-      Swal.fire("Aviso?", "TODOS LOS CAMPOS SON REQUERIDOS", "warning");
+      Swal.fire("", "TODOS LOS CAMPOS SON REQUERIDOS", "warning");
     } else {
       let formData = new FormData();
       formData.append("correoRecuperar", correoRecuperar.value);
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
       http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           const res = JSON.parse(this.responseText);
-          Swal.fire("Aviso?", res.msg, res.icono);
+          Swal.fire("", res.msg, res.icono);
           if (res.icono == "success") {
             setTimeout(() => {
               enviarRecuperar(correoRecuperar.value, res.clave);
@@ -154,7 +154,7 @@ function enviarCorreo(correo, token) {
   http.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       const res = JSON.parse(this.responseText);
-      Swal.fire("Aviso?", res.msg, res.icono);
+      Swal.fire("", res.msg, res.icono);
       if (res.icono == "success") {
         setTimeout(() => {
           window.location.reload();
@@ -177,7 +177,7 @@ function enviarRecuperar(correo, clave) {
     if (this.readyState == 4 && this.status == 200) {
       console.log(this.responseText);
       const res = JSON.parse(this.responseText);
-      Swal.fire("Aviso?", res.msg, res.icono);
+      Swal.fire("", res.msg, res.icono);
       if (res.icono == "success") {
         setTimeout(() => {
           window.location.reload();

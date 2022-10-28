@@ -78,7 +78,7 @@
                                 <button input name="" id="login" class="btn btn-primary btn-lg" type="button" value="">Iniciar Sesion</button>
                             </div>
                         </div>
-                        <!-- formulario de rehistro -->
+                        <!-- formulario de registro -->
                         <div class="col-md-12 d-none" id="frmRegister">
                             <div class="form-group mb-3">
                                 <label for="nombreRegistro"><i class="fas fa-envelope"></i>Nombres</label>
@@ -117,7 +117,7 @@
                                 <button input name="" id="registrarse" class="btn btn-primary btn-lg" type="button" value="">Registrarse</button>
                             </div>
                         </div>
-                        <!-- formulario de rehistro -->
+                        <!-- formulario de recuperar contraseña -->
                         <div class="col-md-12 d-none" id="frmRecuperar">
                             <div class="form-group mb-3">
                                 <label for="correoRecuperar"><i class="fas fa-envelope"></i>Correo</label>
@@ -165,8 +165,8 @@
             <div class="grupo-2">
                 <small>&copy; 2022 <b>OZIZI</b> - Todos Los Derechos Son Reservados. </small>
             </div>
-        </footer>
-        <!--fin del footer-->
+</footer>
+<!--fin del footer-->
 
 
 <script src="<?php echo BASE_URL; ?>assets/js/jquery-3.6.0.min.js"></script>

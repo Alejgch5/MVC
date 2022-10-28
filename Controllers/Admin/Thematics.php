@@ -21,12 +21,13 @@ class Thematics extends Controller
 
        $data['thematics'] = $this->model->getThematic();
 
+       // Vista control temáticas
        $this->views->getView('admin', "tables", $data);
     }
 
     public function insert()
     {
-        $this->apiHeaders();
+        $this->apiHeaders(); // Trae las cabeceras que evitan conflictos con el sevidor
         $request = file_get_contents('php://input');
         $data = json_decode($request, true);
 
@@ -42,11 +43,11 @@ class Thematics extends Controller
         
        if(isset($data['tematica']))
        {
-         if(!$this->model->validateThematic($data))
+         if(!$this->model->validateThematic($data)) // verifica que el nombre de la temática no esté repetido
          {
             if($this->model->insertThematic($data))
             {
-                // create
+                // create thematic
                 $response['message'] = "La Temática ha sido creada con exito";
                 $response['type'] = 'success';
                 $response['status'] = true;
@@ -69,7 +70,7 @@ class Thematics extends Controller
 
     public function update()
     {
-        $this->apiHeaders();
+        $this->apiHeaders(); // Trae las cabeceras que evitan conflictos con el sevidor
         $request = file_get_contents('php://input');
         $data = json_decode($request, true);
 
@@ -86,11 +87,11 @@ class Thematics extends Controller
 
        if(isset($data['tematica']) && isset($data['idtematica']))
        {
-         if(!$this->model->validateThematic($data,$data['idtematica']))
+         if(!$this->model->validateThematic($data,$data['idtematica'])) // verifica que el nombre de la temática no esté repetido
          {
-            if($this->model->updateThematic($data))
+            if($this->model->updateThematic($data)) 
             {
-                // update
+                // update thematic
                 $response['message'] = "La Temática ha sido modificada con exito";
                 $response['type'] = 'success';
                 $response['status'] = true;
@@ -113,7 +114,7 @@ class Thematics extends Controller
 
     public function delete()
     {
-        $this->apiHeaders();
+        $this->apiHeaders(); // Trae las cabeceras que evitan conflictos con el sevidor
         $request = file_get_contents('php://input');
         $data = json_decode($request, true);
 
@@ -127,7 +128,7 @@ class Thematics extends Controller
         {
             if($this->model->deleteThematic($data['codigo']))
             {
-                // Delete
+                // Delete thematics
                 $response['message'] = "La Temática ha sido eliminada con exito";
                 $response['type'] = 'success';
                 $response['status'] = true;

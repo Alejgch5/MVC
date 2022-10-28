@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
           tblCursos.ajax.reload();
           document.querySelector("#imagen").value = "";
         }
-        swal.fire("aviso?", res.msg.toUpperCase(), res.icono);
+        swal.fire("", res.msg.toUpperCase(), res.icono);
       }
     };
   });
@@ -70,7 +70,7 @@ function eliminarCur($idCur) {
           if (res.icono == "success") {
             tblCursos.ajax.reload();
           }
-          swal.fire("aviso?", res.msg.toUpperCase(), res.icono);
+          swal.fire("", res.msg.toUpperCase(), res.icono);
         }
       };
     }

@@ -1,9 +1,9 @@
 <?php 
-class DashboardModel extends Query{ // Contiene las consultas que se requieren en la vista admin
+class DashboardModel extends Query{ // Contiene las consultas que se requieren en la vistas admin
  
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(); // Llama al constructor padre
     }
 
     public function getThematic() // Consulta todos los registros de tbltematica
@@ -14,16 +14,16 @@ class DashboardModel extends Query{ // Contiene las consultas que se requieren e
         return $stmt;
     }
 
-    public function validateThematic($params = [], $id = null) // valida si el nombre de la temática ya existe y devuelve el resultado
+    public function validateThematic($params = [], $id = null) // Valida si el nombre de la temática ya existe y devuelve el resultado
     {
-        // Se agregan los datos del formulario al array
+        // Se agregan los datos del formulario al array $datos
         $datos = $params;
 
         $query = "SELECT * FROM tbltematica WHERE tematica LIKE '%".$datos['tematica']."%'";
         // $query = "SELECT * FROM tbltematica WHERE tematica = '".$datos['tematica']."'"; 
         //Sirve para buscar una coincidencia exacta (la línea anterior)
         
-        if(!empty($id))
+        if(!empty($id)) // Entra sólo si es para actulizar una temática
         {
             $query = "SELECT * FROM tbltematica WHERE tematica LIKE '%".$datos['tematica']."%' AND NOT idtematica=".$id;
         }
@@ -34,7 +34,7 @@ class DashboardModel extends Query{ // Contiene las consultas que se requieren e
     }
     public function insertThematic($params = []) // Inserta un registro en la tbltematica
     {
-        // Se agregan los datos del formulario al array
+        // Se agregan los datos del formulario al array $datos
         $datos = [];
 
         if(!empty($params['tematica']))
@@ -95,7 +95,7 @@ class DashboardModel extends Query{ // Contiene las consultas que se requieren e
 
         return $stmt;
     }
-    public function getTotalGender() // Consulta el total de personas generos
+    public function getTotalGender() // Consulta el total de personas con genero
     {
         $query = "SELECT COUNT(tblusuarios.idgenero) as total_personas
         FROM tblusuarios INNER JOIN tblgenero ON tblusuarios.idgenero = tblgenero.codigo;";
