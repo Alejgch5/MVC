@@ -183,7 +183,7 @@ class Usuarios extends Controller
             if ($data > 0) {
                 foreach ($cursos as $curso) {
                     $temp = $this->model->getDetalle($curso['idcurso']);
-                    $this->model->registrarDetalle($temp['nombre'], $temp['precio'], $data);
+                    $this->model->registrarDetalle($temp['idcurso'], $temp['precio'], $data);
                 }
                 echo "entré";
                 $mensaje = array('msg' => 'OK, CURSO REGISTRADO', 'icono' => 'success');

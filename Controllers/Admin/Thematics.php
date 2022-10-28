@@ -25,7 +25,7 @@ class Thematics extends Controller
        $this->views->getView('admin', "tables", $data);
     }
 
-    public function insert()
+    public function insert() // Inserta nueva temática
     {
         $this->apiHeaders(); // Trae las cabeceras que evitan conflictos con el sevidor
         $request = file_get_contents('php://input');
@@ -68,7 +68,7 @@ class Thematics extends Controller
        } 
     }
 
-    public function update()
+    public function update() // Actualiza las tematicas
     {
         $this->apiHeaders(); // Trae las cabeceras que evitan conflictos con el sevidor
         $request = file_get_contents('php://input');
@@ -112,7 +112,7 @@ class Thematics extends Controller
        } 
     }
 
-    public function delete()
+    public function delete() //  Borra una tematica
     {
         $this->apiHeaders(); // Trae las cabeceras que evitan conflictos con el sevidor
         $request = file_get_contents('php://input');
