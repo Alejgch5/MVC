@@ -83,7 +83,7 @@ class Usuarios extends Controller
                 $mail->Port       = PUERTO_SMTP;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 //Recipients
-                $mail->setFrom('alejgarcia555@gmail.com', TITLE);
+                $mail->setFrom('ozizi.group@gmail.com', TITLE);
                 $mail->addAddress($_POST['correo']);
 
                 //Optional name
@@ -277,7 +277,7 @@ class Usuarios extends Controller
                 $mail->Port       = PUERTO_SMTP;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 //Recipients
-                $mail->setFrom('alejgarcia555@gmail.com', TITLE);
+                $mail->setFrom('ozizi.group@gmail.com', TITLE);
                 $mail->addAddress($_POST['correoRecuperar']);
 
                 //Optional name
